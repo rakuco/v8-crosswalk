@@ -992,7 +992,7 @@ class TranslationIterator BASE_EMBEDDED {
 
 #define TRANSLATION_OPCODE_LIST(V)                                             \
   V(BEGIN)                                                                     \
-  V(JS_FRAME)
+  V(JS_FRAME)                                                                  \
   V(INTERPRETED_FRAME)                                                         \
   V(CONSTRUCT_STUB_FRAME)                                                      \
   V(GETTER_STUB_FRAME)                                                         \

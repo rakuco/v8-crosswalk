@@ -2910,17 +2910,6 @@ bool Genesis::InstallDebuggerNatives() {
   return CallUtilsFunction(isolate(), "PostDebug");
 }
 
-
-bool Bootstrapper::InstallCodeStubNatives(Isolate* isolate) {
-  for (int i = CodeStubNatives::GetDebuggerCount();
-       i < CodeStubNatives::GetBuiltinsCount(); i++) {
-    if (!CompileCodeStubBuiltin(isolate, i)) return false;
-  }
-
-  return true;
-}
-
-
 static Handle<JSObject> ResolveBuiltinSIMDIdHolder(
     Handle<Context> native_context,
     const char* holder_expr) {
@@ -3045,7 +3034,6 @@ void Genesis::InstallExperimentalSIMDBuiltinFunctionIds() {
 #undef INSTALL_SIMD_SENARY_FUNCTION_ID
 #undef INSTALL_BUILTIN_ID
 }
-
 
 void Genesis::InitializeNormalizedMapCaches() {
   Handle<NormalizedMapCache> cache = NormalizedMapCache::New(isolate());
